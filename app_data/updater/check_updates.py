@@ -27,11 +27,12 @@ def update_app(source_dir, destination_dir, EXCLUDED_FILES = None, EXCLUDED_FOLD
     with tempfile.TemporaryDirectory(dir=os.getcwd()) as tmp:
 
         #* Check if repo has any updates (if hash has changed) *#
-        commit_data = requests.get("https://api.github.com/repos/ZekIzLoupriora/NSPU-Schedule/commits",
-                                   headers={
-                                       "Accept": "application/vnd.github+json",
-                                       "Authorization": "Bearer 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"
-                                    })
+        #commit_data = requests.get("https://api.github.com/repos/ZekIzLoupriora/NSPU-Schedule/commits",
+        #                           headers={
+        #                               "Accept": "application/vnd.github+json",
+        #                               "Authorization": "Bearer YOUR_TOKEN"
+        #                            })
+        commit_data = requests.get("https://api.github.com/repos/ZekIzLoupriora/NSPU-Schedule/commits")
         last_commit_hash = commit_data.json()[0]["sha"]
 
         #* Get commit hash from the last app update *#
